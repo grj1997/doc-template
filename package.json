@@ -1,0 +1,46 @@
+{
+  "name": "yourProjectName",
+  "version": "0.0.1",
+  "private": false,
+  "main": "./lib/yourProjectName.umd.min.js",
+  "type": "./lib/yourProjectName.umd.min.js",
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name yourProjectName --dest lib packages/index.js",
+    "publish:all": "npm run publish:cdn && npm run publish:docs",
+    "publish:cdn": "standard-version -a && npm run lib && node scripts/publishCdn.js",
+    "publish:docs": "npm run build && node scripts/publishDocsCdn.js",
+    "newModule": "node scripts/createModule.js",
+    "updateExportJs": "node scripts/updateExportJs.js"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
+    "ali-oss": "^6.17.1",
+    "amfe-flexible": "^2.2.1",
+    "autoprefixer": "9.8.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "execa": "4.0.3",
+    "fs-extra": "^10.0.1",
+    "node-sass": "^4.12.0",
+    "postcss-px2rem": "^0.3.0",
+    "prompts": "^2.4.2",
+    "px2rem": "^0.5.0",
+    "sass-loader": "^8.0.2",
+    "standard-version": "^9.3.2",
+    "vtils": "^4.59.0",
+    "vue-template-compiler": "^2.6.11",
+    "vue-tv-focusable": "^1.0.7"
+  }
+}
